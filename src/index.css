@@ -1,0 +1,16 @@
+/* Header */
+.header {
+    background-color: #000000;
+    height: 50px;
+    padding: 10px 20px;
+}
+
+.header .logo {
+    height: 30px;
+    padding-right: 20px;
+}
+
+.header .nav-link {
+    color: #ffffff;
+    padding-right: 20px;
+}
