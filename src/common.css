@@ -22,12 +22,17 @@ a{
     margin: 0 auto;
 }
 
+.wrapper {
+    height: 100vh;
+    width: 100%;
+}
+
 /* Flex */
 .d-flex {
     display: flex;
 }
 
-.d-flex-column {
+.flex-column {
     flex-direction: column;
 }
 
@@ -35,6 +40,24 @@ a{
     justify-content: center;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
 .align-center {
     align-items: center;
+}
+
+/* Typography */
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+/* Positioning */
+.p-relative {
+    position: relative;
 }

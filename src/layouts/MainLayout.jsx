@@ -6,17 +6,18 @@ import AppFooter from "../components/AppFooter"
 
 function MainLayout() {
     return (
-        <>
-            <header>
-                <AppHeader />
-            </header>
+        <div className="wrapper">
+            {/* Header */}
+            <AppHeader />
+            {/* Main */}
             <main>
                 <Outlet />
             </main>
-            <footer>
+            {/* Footer */}
+            {/* <footer>
                 <AppFooter />
-            </footer>
-        </>
+            </footer> */}
+        </div>
     )
 }
 
