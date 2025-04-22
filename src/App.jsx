@@ -1,8 +1,30 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+// Layouts
+import MainLayout from "./layouts/MainLayout"
+
+// Pages
+import HomePage from "./pages/HomePage"
+import ReelPage from "./pages/ReelPage"
+import ProjectsPage from "./pages/ProjectsPage"
+import AboutPage from "./pages/AboutPage"
+import DetailPage from "./pages/DetailPage"
+
 function App() {
 
   return (
     <>
-      <h1>Welcome</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<MainLayout />} >
+            <Route index element={<HomePage />} />
+            <Route path="/reel" element={<ReelPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/detail/:slug" element={<DetailPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
