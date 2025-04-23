@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './fonts.css'
 import './utilities.css'
 import './common.css'
+import './hover.css'
 import './index.css'
 import App from './App.jsx'
 

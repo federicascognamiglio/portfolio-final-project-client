@@ -2,6 +2,10 @@
 :root {
     --header-height: 50px;
     --header-background-color: rgba(0, 0, 0, 0.5);
+    --active-link-color: #656872;
+    --dropdown-background-color: rgb(3, 3, 28);
     --footer-height: 80px;
     --footer-background-color: rgba(59, 59, 59, 0.5);
+    --hover-link-label-background-color: #333;
+    --main-blue: #0059D1;
 }
