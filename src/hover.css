@@ -1,0 +1,20 @@
+/* Footer */
+.footer-link:hover .link-icon {
+    transform: translateY(-5px);
+}
+
+.footer-link:hover .hover-link-label {
+    display: inline-block;
+}
+
+/* Home Page */
+.folder:hover .folder-icon{
+    border: 1px solid rgba(162, 162, 162, 0.5);
+    border-radius: 5px;
+}
+
+.folder:hover .folder-label {
+    background-color: var(--main-blue);
+    border-radius: 5px;
+}
+
