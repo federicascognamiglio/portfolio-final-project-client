@@ -2,4 +2,6 @@
 :root {
     --header-height: 50px;
     --header-background-color: rgba(0, 0, 0, 0.5);
+    --footer-height: 80px;
+    --footer-background-color: rgba(59, 59, 59, 0.5);
 }

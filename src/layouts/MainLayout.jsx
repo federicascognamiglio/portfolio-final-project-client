@@ -14,9 +14,7 @@ function MainLayout() {
                 <Outlet />
             </main>
             {/* Footer */}
-            {/* <footer>
-                <AppFooter />
-            </footer> */}
+            <AppFooter />
         </div>
     )
 }
