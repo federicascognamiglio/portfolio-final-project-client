@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 // Layouts
 import MainLayout from "./layouts/MainLayout"
 
+// Contexts
+import { GlobalContextProvider } from "./contexts/GlobalContext"
+
 // Pages
 import HomePage from "./pages/HomePage"
 import ReelPage from "./pages/ReelPage"
@@ -14,17 +17,19 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout />} >
-            <Route index element={<HomePage />} />
-            <Route path="/reel" element={<ReelPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/detail/:slug" element={<DetailPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<MainLayout />} >
+              <Route index element={<HomePage />} />
+              <Route path="/reel" element={<ReelPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/detail/:slug" element={<DetailPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalContextProvider>
     </>
   )
 }
