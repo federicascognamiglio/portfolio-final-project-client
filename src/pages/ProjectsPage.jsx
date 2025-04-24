@@ -2,6 +2,10 @@ import { useLocation } from "react-router-dom";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProjectsGrid from "../components/ProjectsGrid";
+import ProjectsPreview from "../components/ProjectsPreview";
+
+// Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
@@ -13,7 +17,7 @@ function ProjectsPage() {
     const [projects, setProjects] = useState([]);
 
     // Global Context Variables
-    const { categories, baseApiUrl, baseImgUrl } = useGlobalContext();
+    const { categories, baseApiUrl } = useGlobalContext();
 
     // Get params
     const location = useLocation();
@@ -35,6 +39,12 @@ function ProjectsPage() {
             getProjectsByCategory(categoryName);
         }
     }, [categoryName]);
+
+    // Grid Switch Handler
+    const [gridType, setGridType] = useState("grid");
+    const handleGridSwitch = (type) => {
+        setGridType(type);
+    }
 
     return (
         <div className="projects-page">
@@ -77,8 +87,8 @@ function ProjectsPage() {
                         </div>
                         <div className="actions d-flex">
                             <div className="buttons">
-                                <button className="layout-grid p-relative"><FontAwesomeIcon icon={faTableCellsLarge} /></button>
-                                <button className="layout-list"><FontAwesomeIcon icon={faGripVertical} /></button>
+                                <button onClick={() => handleGridSwitch('grid')} className="layout-grid p-relative"><FontAwesomeIcon icon={faTableCellsLarge} /></button>
+                                <button onClick={() => handleGridSwitch('preview')} className="layout-list"><FontAwesomeIcon icon={faGripVertical} /></button>
                                 <button className="filters-btn"><FontAwesomeIcon icon={faFilter} /></button>
                             </div>
                             <div className="p-relative">
@@ -87,20 +97,11 @@ function ProjectsPage() {
                             </div>
                         </div>
                     </div>
-                    {/* Body */}
-                    <div className="projects-list-body d-flex">
-                        {projects && projects.map(project => (
-                            <div key={project.id} className="project-card d-flex flex-column justify-center align-center">
-                                <div className="project-thumbnail">
-                                    <img src={`${baseImgUrl}/${project.cover_image}`} alt={`${project.name} thumbnail`} className="thumbnail-img" />
-                                </div>
-                                <h5 className="project-name">{project.title}</h5>
-                            </div>
-                        ))}
-                    </div>
+                    {gridType === 'grid' && <ProjectsGrid projects={projects} />}
+                    {gridType === 'preview' && <ProjectsPreview projects={projects} />}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
