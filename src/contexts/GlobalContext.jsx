@@ -7,20 +7,15 @@ function GlobalContextProvider({ children }) {
 
     // URL
     const baseApiUrl = import.meta.env.VITE_API_URL
+    const baseImgUrl = import.meta.env.VITE_IMG_URL
 
     // Categories
     const [categories, setCategories] = useState([])
-    // Types
-    const [types, setTypes] = useState([])
 
     const getCategories = () => {
         axios.get(baseApiUrl + '/categories').then(resp => {
             const data = resp.data.data
             setCategories(data)
-
-            // Set Types
-            const types = data.flatMap(cat => cat.types)
-            setTypes(types)
         })
     }
 
@@ -28,7 +23,7 @@ function GlobalContextProvider({ children }) {
         getCategories()
     }, [])
 
-    const providerValue = { categories, types, baseApiUrl }
+    const providerValue = { categories, baseApiUrl, baseImgUrl }
 
     return (
         <GlobalContext.Provider value={providerValue}>

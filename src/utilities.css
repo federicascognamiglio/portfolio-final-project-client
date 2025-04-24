@@ -2,10 +2,16 @@
 :root {
     --header-height: 50px;
     --header-background-color: rgba(0, 0, 0, 0.5);
-    --active-link-color: #656872;
+    --active-link-color: rgba(188, 191, 201, 0.5);
     --dropdown-background-color: rgb(3, 3, 28);
     --footer-height: 80px;
     --footer-background-color: rgba(59, 59, 59, 0.5);
     --hover-link-label-background-color: #333;
     --main-blue: #0059D1;
+    --side-menu-background-color: #232934;
+    --project-page-background-color: #1E1F21;
+    --side-menu-width: 200px;
+    --close-btn-color: #FF4C4A;
+    --hide-btn-color: #FFE100;
+    --expand-btn-color: #00E03A;
 }

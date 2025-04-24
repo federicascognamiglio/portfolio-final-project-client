@@ -3,48 +3,51 @@ function AppFooter() {
         <footer className="footer d-flex align-center">
             <ul className="links d-flex align-center">
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Behance</div>
+                    <div className="hover-link-label">Behance</div>
                     <a href={import.meta.env.VITE_BEHANCE_LINK} target="_blank">
                         <img className="link-icon" src="img/behance-logo.jpg" alt="Behance Logo" />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Linkedin</div>
+                    <div className="hover-link-label">LinkedIn</div>
                     <a href={import.meta.env.VITE_LINKEDIN_LINK} target="_blank">
                         <img className="link-icon" src="img/linkedin-logo.png" alt="Linkedin Logo" style={{ backgroundColor: '#ffffff' }} />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Mail</div>
+                    <div className="hover-link-label">Mail</div>
                     <a href={import.meta.env.VITE_MAIL_LINK} target="_blank">
                         <img className="link-icon" src="img/mail-logo.avif" alt="Mail Logo" />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Phone</div>
+                    <div className="hover-link-label">Phone</div>
                     <a href={import.meta.env.VITE_PHONE_LINK} target="_blank">
                         <img className="link-icon" src="img/phone-logo.png" alt="Phone Logo" />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Github</div>
+                    <div className="hover-link-label">GitHub</div>
                     <a href={import.meta.env.VITE_GITHUB_LINK} target="_blank">
                         <img className="link-icon" src="img/github-logo.png" alt="Github Logo" />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Instagram</div>
+                    <div className="hover-link-label">Instagram</div>
                     <a href={import.meta.env.VITE_INSTAGRAM_LINK} target="_blank">
                         <img className="link-icon" src="img/instagram-logo.png" alt="Instagram Logo" />
                     </a>
                 </li>
                 <li className="footer-link p-relative">
-                    <div className="hover-link-label text-uppercase">Tiktok</div>
+                    <div className="hover-link-label">TikTok</div>
                     <a href={import.meta.env.VITE_TIKTOK_LINK} target="_blank">
                         <img className="link-icon" src="img/tiktok-logo.png" alt="TikTok Logo" />
                     </a>
                 </li>
-                <li className="footer-link"><img className="link-icon" src="img/bin-logo.png" alt="Trash Icon" /></li>
+                <li className="footer-link p-relative">
+                    <div className="hover-link-label">Trash</div>
+                    <img className="link-icon" src="img/bin-logo.png" alt="Trash Icon" />
+                </li>
             </ul>
         </footer>
     )
