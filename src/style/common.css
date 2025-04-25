@@ -42,6 +42,17 @@ button {
 .col {
     width: 100%;
     margin-bottom: 20px;
+    padding: 5px;
+}
+
+.col-10 {
+    width: calc(100% - 120px) / 4;
+    margin-right: 40px;
+}
+
+.col-50 {
+    width: calc(50% - 20px);
+    margin-right: 20px;
 }
 
 /* Flex */

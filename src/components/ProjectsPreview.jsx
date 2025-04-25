@@ -11,15 +11,38 @@ function ProjectsPreview({ projects }) {
 
     // Preview Project
     const getProjectToPreview = (slug) => {
+        // Check if cliccked project is already displaying
+        if (slug === selectedProject.slug) {
+            console.log('Already displaying the selected project, skipping API call.');
+            return;
+        }
+
         axios.get(`${baseApiUrl}/projects/${slug}`)
             .then(resp => {
-                setSelectedProject(resp.data.data);
+                console.log('API response:', resp.data.data);
+
+                // Check if the response contains valid data
+                if (resp.data && resp.data.data) {
+                    setSelectedProject(resp.data.data);
+                } else {
+                    console.error('Error: Received invalid data from API', resp);
+                }
             })
+            .catch(err => {
+                console.error('Error fetching project data:', err);
+            });
     }
 
     useEffect(() => {
-        getProjectToPreview(selectedProject.slug);
+        if (selectedProject && selectedProject.slug) {
+            getProjectToPreview(selectedProject.slug);
+        }
     }, [selectedProject]);
+
+    // Highlight the selected project
+    const isHigligthed = (project) => {
+        return selectedProject.id === project.id ? 'highlighted' : '';
+    }
 
     return (
         <div className="projects-list-body">
@@ -27,8 +50,8 @@ function ProjectsPreview({ projects }) {
                 <div className="col-list">
                     <div className="row">
                         {projects && projects.map(project => (
-                            <div className="col" key={project.id}>
-                                <div onClick={() => setSelectedProject(project.slug)} className="project-card d-flex align-center">
+                            <div className={`col ${isHigligthed(project)}`} key={project.id}>
+                                <div onClick={() => setSelectedProject(project)} className="project-card d-flex align-center">
                                     <div className="project-thumbnail-sm">
                                         <img src={`${baseImgUrl}/${project.cover_image}`} alt={`${project.name} thumbnail`} className="thumbnail-img" />
                                     </div>
@@ -68,7 +91,7 @@ function ProjectsPreview({ projects }) {
                                 </div>
                             </div>
                             <div className='d-flex flex-column align-center'>
-                                <a className="more-btn p-relative" href={`projects/detail/:${selectedProject.slug}`}>
+                                <a className="more-btn p-relative" href={`detail/${selectedProject.slug}`}>
                                     <span className="dots">&hellip;</span>
                                 </a>
                                 <p>Details</p>
