@@ -1,10 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProjectsGrid from "../components/ProjectsGrid";
 import ProjectsPreview from "../components/ProjectsPreview";
-import { useNavigate } from 'react-router-dom';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,9 +18,9 @@ import { faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icon
 function ProjectsPage() {
     //Navigate
     const navigate = useNavigate();
+    const location = useLocation();
 
     // Get params
-    const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const categoryParam = queryParams.get("categoryName");
 
@@ -44,7 +43,7 @@ function ProjectsPage() {
                 setProjects(resp.data.data);
             })
             .catch(err => {
-                console.error("Errore nel recupero dei progetti:", err);
+                console.error("Error loading projects:", err);
             });
     }
 
@@ -59,7 +58,7 @@ function ProjectsPage() {
                 setProjects(resp.data.data);
             })
             .catch(err => {
-                console.error("Errore nel recupero dei progetti:", err);
+                console.error("Error loading projects:", err);
             });
     }
 
@@ -77,15 +76,62 @@ function ProjectsPage() {
     const handleCategoryClick = (categoryName) => {
         setSelectedType('')
         setSelectedCategory(categoryName);
-        navigate(`?categoryName=${categoryName}`);
+        navigate(`?categoryName=${categoryName}`, { state: { fromProjectsPage: true } });
     };
-    
+
     // Handle Type Click
     const handleTypeClick = (typeName) => {
         setSelectedCategory('')
         setSelectedType(typeName);
-        navigate(`?typeName=${typeName}`);
+        navigate(`?typeName=${typeName}`, { state: { fromProjectsPage: true } });
     };
+
+    // Handle Back and Forward navigation
+    const [canGoBack, setCanGoBack] = useState(false);
+    const [canGoForward, setCanGoForward] = useState(false);
+
+    useEffect(() => {
+        // Check if can go back or forward in Projects Page
+        const { state } = location;
+
+        if (state && state.fromProjectsPage) {
+            setCanGoBack(true);
+        } else {
+            setCanGoBack(false);
+        }
+
+        setCanGoForward(true);
+    }, [location]);
+
+    // Navigate Back
+    const handleBack = () => {
+        if (canGoBack) {
+            navigate(-1);
+        }
+    };
+
+    // Navigate Forward
+    const handleForward = () => {
+        if (canGoForward) {
+            navigate(1);
+        }
+    };
+
+    // Update selectedCategory and selectedType when location changes
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const categoryFromUrl = queryParams.get("categoryName");
+        const typeFromUrl = queryParams.get("typeName");
+
+        if (categoryFromUrl && categoryFromUrl !== selectedCategory) {
+            setSelectedCategory(categoryFromUrl);
+            setSelectedType('')
+        }
+        if (typeFromUrl && typeFromUrl !== selectedType) {
+            setSelectedCategory('')
+            setSelectedType(typeFromUrl);
+        }
+    }, [location]);
 
     // Grid Switch Handler
     const [gridType, setGridType] = useState("grid");
@@ -134,8 +180,18 @@ function ProjectsPage() {
                     {/* Header */}
                     <div className="projects-list-header p-relative d-flex align-center justify-between">
                         <div className="navigation">
-                            <button className="back-btn">&lt;</button>
-                            <button className="forward-btn">&gt;</button>
+                            <button
+                                className={`back-btn ${!canGoBack ? 'disabled' : ''}`}
+                                onClick={handleBack}
+                                disabled={!canGoBack}>
+                                &lt;
+                            </button>
+                            <button
+                                className={`forward-btn ${!canGoForward ? 'disabled' : ''}`}
+                                onClick={handleForward}
+                                disabled={!canGoForward}>
+                                &gt;
+                            </button>
                             <span className="category-name">{selectedCategory}</span>
                         </div>
                         <div className="actions d-flex">

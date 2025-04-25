@@ -13,7 +13,6 @@ function ProjectsPreview({ projects }) {
     const getProjectToPreview = (slug) => {
         // Check if cliccked project is already displaying
         if (slug === selectedProject.slug) {
-            console.log('Already displaying the selected project, skipping API call.');
             return;
         }
 

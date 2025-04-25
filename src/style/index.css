@@ -279,6 +279,11 @@
     font-size: 1.5rem;
 }
 
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .search-bar {
     background-color: var(--project-page-background-color);
     border: 1px solid rgba(162, 162, 162, 0.5);
