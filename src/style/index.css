@@ -177,6 +177,7 @@
     background-color: var(--project-page-background-color);
     padding-top: 70px;
     width: calc(100% - var(--side-menu-width));
+    height: 100vh;
     color: #ffffff;
 }
 
@@ -193,7 +194,7 @@
     width: 200px;
     height: 1px;
     background-color: rgb(1, 4, 22);
-    box-shadow: 5px 2px 8px #4c4d53;
+    box-shadow: 5px 2px 8px #414247;
 }
 
 .projects-list-header {
@@ -209,7 +210,7 @@
     width: 100%;
     height: 1px;
     background-color: rgb(1, 4, 22);
-    box-shadow: 5px 2px 8px #4c4d53;
+    box-shadow: 5px 2px 8px #414247;
 }
 
 .side-menu-body {
@@ -217,7 +218,7 @@
 }
 
 .projects-list-body {
-    padding: 30px;
+    padding: 0 30px;
 }
 
 .side-menu-header .close-btn {
@@ -314,7 +315,7 @@
 }
 
 .project-card {
-    width: calc(100% / 6);
+    width: 100%;
 }
 
 .project-card .project-thumbnail {
@@ -323,11 +324,76 @@
     margin-bottom: 10px;
 }
 
+.project-card .project-thumbnail-sm {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
 .thumbnail-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.col-list {
+    width: 30%;
+    height: 100vh;
+    padding-top: 30px;
+    border-right: 1px solid rgb(1, 4, 22);
+}
+
+.col-list .project-name {
+    font-size: 1rem;
+}
+
+.col-preview {
+    width: 70%;
+    padding: 40px 40px 200px 80px;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.project-preview-name {
+    font-size: 1.5rem;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.project-preview-subtitle {
+    font-family: 'SF Pro Thin';
+    padding-bottom: 20px;
+}
+
+.project-preview-info {
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.info-row {
+    font-family: 'SF Pro Thin';
+    font-size: 1rem;
+}
+
+.divider {
+    margin: 10px 0 10px 0;
+}
+
+.more-btn {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.dots {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* DROPDOWN DRAFT */
