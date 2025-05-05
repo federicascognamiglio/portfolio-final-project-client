@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from "../contexts/GlobalContext"
 
@@ -8,7 +8,19 @@ import { faBatteryThreeQuarters } from '@fortawesome/free-solid-svg-icons'
 import { faWifi } from '@fortawesome/free-solid-svg-icons'
 
 function AppHeader() {
-  // Elements
+  // Global context variables
+  const { categories, types } = useGlobalContext()
+
+  // Show projects dropdown on click
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeClass, setActiveClass] = useState('');
+
+  const handleDropdownToggle = () => {
+    setActiveClass(activeClass === 'active' ? '' : 'active');
+    setShowDropdown(!showDropdown);
+  };
+
+  // Display Date
   const dateDisplay = () => {
     const [formattedDate, setFormattedDate] = useState('');
 
@@ -44,12 +56,28 @@ function AppHeader() {
       <nav className="d-flex align-center">
         <img className="logo" src="/img/scg-logo-white.png" alt="SCG Logo" />
         <ul className="d-flex">
-          <li className="nav-link"><NavLink to="/">Home</NavLink></li>
-          <li className="nav-link"><NavLink to="/reel">Reel</NavLink></li>
-          <li className="nav-link p-relative">
-            <NavLink to="/projects">Projects</NavLink>
+          <li><NavLink className="nav-link" to="/">Home</NavLink></li>
+          <li><NavLink className="nav-link" to="/reel">Reel</NavLink></li>
+          <li className="p-relative">
+            <Link to="/projects/select" className={`nav-link ${activeClass}`} onClick={handleDropdownToggle} >Projects</Link>
+            {/* Projects dropdown */}
+            {
+              showDropdown && (
+                <div className="projects-dropdown">
+                  <ul>
+                    {categories && categories.map(category =>
+                      <li key={category.id} className="dropdown-link">
+                        <Link className="dropdown-link" to={`/projects?categoryName=${category.name}`} onClick={handleDropdownToggle}>
+                          {category.name}
+                        </Link>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )
+            }
           </li>
-          <li className="nav-link"><NavLink to="/about">About</NavLink></li>
+          <li><NavLink className="nav-link" to="/about">About</NavLink></li>
         </ul>
       </nav>
       <div className="nav-icons">
@@ -64,34 +92,3 @@ function AppHeader() {
 }
 
 export default AppHeader
-
-// DROPDOWN DRAFT
-// Global context variables
-// const { categories, types } = useGlobalContext()
-// Show projects dropdown on click
-// const [showDropdown, setShowDropdown] = useState(false);
-// const [activeClass, setActiveClass] = useState('');
-
-// const handleDropdownToggle = () => {
-//   setActiveClass(activeClass === 'active' ? '' : 'active');
-//   setShowDropdown(!showDropdown);
-// };
-
-
-//   < button className = { activeClass } onClick = { handleDropdownToggle } > Projects</ >
-//     {/* Projects dropdown */ }
-// {
-//   showDropdown && (
-//     <div className="projects-dropdown">
-//       <ul>
-//         {categories && categories.map(category =>
-//           <li key={category.id} className="dropdown-link">
-//             <NavLink to={`/projects`}>
-//               {category.name}
-//             </NavLink>
-//           </li>
-//         )}
-//       </ul>
-//     </div>
-//   )
-// }

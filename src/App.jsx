@@ -23,6 +23,7 @@ function App() {
             <Route element={<MainLayout />} >
               <Route index element={<HomePage />} />
               <Route path="/reel" element={<ReelPage />} />
+              <Route path="/projects/select" element={<HomePage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/detail/:slug" element={<DetailPage />} />

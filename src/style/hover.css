@@ -1,3 +1,9 @@
+/* Header */
+.dropdown-link:hover {
+    background-color: var(--main-blue);
+    border-radius: 5px;
+}
+
 /* Footer */
 .footer-link:hover .link-icon {
     transform: translateY(-5px);
