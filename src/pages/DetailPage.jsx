@@ -37,27 +37,27 @@ function DetailPage() {
                     (
                         <>
                             <div className="d-flex flex-column align-center">
-                                <h1>{project.title}</h1>
-                                <h5>{project.subtitle}</h5>
-                                <span>{`${project.category.name} - ${project.type.name}`}</span>
+                                <h1 className="main-title">{project.title}</h1>
+                                <h5 className="subtitle">{project.subtitle}</h5>
+                                <span className="category-type">{`${project.category.name} - ${project.type.name}`}</span>
                                 {/* Images */}
                                 {project.media.lenght === 0
                                     ?
-                                    <img src={`${baseImgUrl / project.cover_image}`} alt={`Cover image of ${project.title}`} />
+                                    <img className="cover-img" src={`${baseImgUrl / project.cover_image}`} alt={`Cover image of ${project.title}`} />
                                     :
                                     // Slider
                                     <ImageSlider images={project.media} />
                                 }
-                                <p>Client: {project.client ? project.client : 'Personal Project'}</p>
-                                <p>Tags: {project.tags.map(tag => <span key={tag.id} style={{ backgroundColor: tag.color }}>{tag.name}</span>)}</p>
-                                <p>Tools: {project.tools.map(tool => <span key={tool.id} style={{ backgroundColor: tool.color }}>{tool.name}</span>)}</p>
+                                <p className="details"><strong className="text-medium">Client: </strong>{project.client ? project.client : 'Personal Project'}</p>
+                                <p className="details"><strong className="text-medium">Tags: </strong>{project.tags.map(tag => <span className="badge-tag" key={tag.id} style={{ backgroundColor: tag.color }}>{tag.name}</span>)}</p>
+                                <p className="details"><strong className="text-medium">Tools: </strong>{project.tools.map(tool => <span className="badge-tool" key={tool.id} style={{ backgroundColor: tool.color }}>{tool.name}</span>)}</p>
                                 {project.start_date &&
-                                    <>
-                                        <p>Started at: {project.start_date}</p>
-                                        <p>Ended at: {project.end_date ? project.end_date : 'On going'}</p>
-                                    </>
+                                    <div className="d-flex justify-between">
+                                        <p><strong className="text-medium">Start date: </strong>{project.start_date}</p>
+                                        <p><strong className="text-medium">End date: </strong>{project.end_date ? project.end_date : 'On going'}</p>
+                                    </div>
                                 }
-                                <p><strong>Description:</strong><br />
+                                <p className="details description"><strong className="text-medium">Description:</strong><br />
                                     {project.description}
                                 </p>
                             </div>

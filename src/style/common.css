@@ -90,6 +90,10 @@ button {
     text-transform: uppercase;
 }
 
+.text-medium {
+    font-family: 'SF Pro Medium';
+}
+
 /* Positioning */
 .p-relative {
     position: relative;
