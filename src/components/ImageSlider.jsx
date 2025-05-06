@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useGlobalContext } from "../contexts/GlobalContext";
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 function ImageSlider({ images }) {
     //Global context variables
-    const {baseImgUrl} = useGlobalContext()
+    const { baseImgUrl } = useGlobalContext()
 
     // Sate variable
     const [current, setCurrent] = useState(0);
@@ -21,20 +25,31 @@ function ImageSlider({ images }) {
             <img
                 src={`${baseImgUrl}/${images[current].url}`}
                 alt={images[current].description || `Slide ${images[current].id}`}
-                className="object-cover"
+                className="slider-img"
             />
             <button
                 onClick={prevSlide}
-            // className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+                className="prev-slide"
             >
-                1
+                <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <button
                 onClick={nextSlide}
-            // className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+                className="next-slide"
             >
-                2
+                <FontAwesomeIcon icon={faArrowRight} />
             </button>
+
+            {/* Slider Navigation */}
+            <div className="slider-indicators">
+                {images.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`indicator ${index === current ? "active" : ""}`}
+                        onClick={() => setCurrent(index)}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
