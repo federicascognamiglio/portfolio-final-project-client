@@ -31,7 +31,7 @@ function DetailPage() {
 
 
     return (
-        <div className="detail-page">
+        <div className="detail-page text-white">
             <div className="container">
                 {project &&
                     (
@@ -39,11 +39,11 @@ function DetailPage() {
                             <div className="d-flex flex-column align-center">
                                 <h1 className="main-title">{project.title}</h1>
                                 <h5 className="subtitle">{project.subtitle}</h5>
-                                <span className="category-type">{`${project.category.name} - ${project.type.name}`}</span>
+                                <span className="category-type rounded-lg">{`${project.category.name} - ${project.type.name}`}</span>
                                 {/* Images */}
-                                {project.media.lenght === 0
+                                {project.media.length === 0
                                     ?
-                                    <img className="cover-img" src={`${baseImgUrl / project.cover_image}`} alt={`Cover image of ${project.title}`} />
+                                    <img className="cover-img" src={`${baseImgUrl}/${project.cover_image}`} alt={`Cover image of ${project.title}`} />
                                     :
                                     // Slider
                                     <ImageSlider images={project.media} />

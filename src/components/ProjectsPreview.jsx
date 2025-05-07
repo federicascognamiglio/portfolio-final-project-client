@@ -52,7 +52,7 @@ function ProjectsPreview({ projects }) {
                             <div className={`col ${isHigligthed(project)}`} key={project.id}>
                                 <div onClick={() => setSelectedProject(project)} className="project-card d-flex align-center">
                                     <div className="project-thumbnail-sm">
-                                        <img src={`${baseImgUrl}/${project.cover_image}`} alt={`${project.name} thumbnail`} className="thumbnail-img" />
+                                        <img src={`${baseImgUrl}/${project.cover_image}`} alt={`${project.name} thumbnail`} className="thumbnail-img rounded" />
                                     </div>
                                     <h5 className="project-name">{project.title}</h5>
                                 </div>
@@ -63,7 +63,7 @@ function ProjectsPreview({ projects }) {
                 <div className="col-preview">
                     <div className="project-preview-card">
                         <div className="project-preview-thumbnail">
-                            <img src={`${baseImgUrl}/${selectedProject.cover_image}`} alt={`${selectedProject.name} thumbnail`} className="thumbnail-img" />
+                            <img src={`${baseImgUrl}/${selectedProject.cover_image}`} alt={`${selectedProject.name} thumbnail`} className="thumbnail-img rounded" />
                         </div>
                         <div className="project-preview-details">
                             <h5 className="project-preview-name">{selectedProject.title}</h5>

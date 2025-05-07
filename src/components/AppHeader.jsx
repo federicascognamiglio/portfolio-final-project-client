@@ -52,7 +52,7 @@ function AppHeader() {
   };
 
   return (
-    <header className="header d-flex justify-between align-center">
+    <header className="header d-flex justify-between align-center text-white">
       <nav className="d-flex align-center">
         <img className="logo" src="/img/scg-logo-white.png" alt="SCG Logo" />
         <ul className="d-flex">
@@ -63,10 +63,10 @@ function AppHeader() {
             {/* Projects dropdown */}
             {
               showDropdown && (
-                <div className="projects-dropdown">
+                <div className="projects-dropdown text-white rounded-lg">
                   <ul>
                     {categories && categories.map(category =>
-                      <li key={category.id} className="dropdown-link">
+                      <li key={category.id} className="dropdown-link text-white">
                         <Link className="dropdown-link" to={`/projects?categoryName=${category.name}`} onClick={handleDropdownToggle}>
                           {category.name}
                         </Link>

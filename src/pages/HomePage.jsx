@@ -7,10 +7,10 @@ function HomePage() {
     const { categories } = useGlobalContext()
 
     return (
-        <div className="home-page p-relative">
+        <div className="home-page p-relative text-white">
             <div className="container">
                 {/* Background */}
-                <div className="lockscreen-logo d-flex flex-column align-center">
+                <div className="lockscreen-logo d-flex flex-column align-center absolute-center">
                     <img className="logo" src="/img/scg-logo-white.png" alt="SCG Logo" />
                     <p className="subtitle text-uppercase">Graphic Designer - Motion Graphics - Content Creator</p>
                 </div>
@@ -22,23 +22,23 @@ function HomePage() {
                                 <div key={category.id} className="col-50">
                                     <div className="folder">
                                         <Link className='d-flex flex-column align-center' to={`/projects?categoryName=${category.name}`}>
-                                            <img className='folder-icon' src="img/folder.png" alt="Folder Icon" />
-                                            <p className="folder-label text-center">{category.name}</p>
+                                            <img className='folder-icon' src="img/folder.webp" alt="Folder Icon" />
+                                            <p className="folder-label text-white text-center">{category.name}</p>
                                         </Link>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    {/* Reel */}
+                    {/* Reel & CV*/}
                     <div className='d-flex flex-column align-center'>
                         <div className="reel folder d-flex flex-column align-center">
-                            <img className="reel-icon" src='img/reel-cover.png' alt='Reel thumbnail' />
-                            <p className='folder-label text-center'>Reel</p>
+                            <img className="reel-icon" src='img/reel-cover.webp' alt='Reel thumbnail' />
+                            <p className='folder-label text-white text-center'>Reel</p>
                         </div>
                         <div className="cv folder d-flex flex-column align-center">
-                            <img className="cv-icon" src='img/pdf-file-icon.png' alt='Pdf icon' />
-                            <p className='folder-label text-center'>CV</p>
+                            <img className="cv-icon" src='img/pdf-file-icon.webp' alt='Pdf icon' />
+                            <p className='folder-label text-white text-center'>CV</p>
                         </div>
                     </div>
                 </div>

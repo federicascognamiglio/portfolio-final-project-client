@@ -140,20 +140,20 @@ function ProjectsPage() {
     }
 
     return (
-        <div className="projects-page">
+        <div className="projects-page text-white">
             <div className="d-flex">
                 {/* Side Menu */}
                 <div className="side-menu">
                     {/* Buttons */}
                     <div className="side-menu-header p-relative d-flex align-center justify-center">
                         <a href="/" className="close-btn d-flex align-center justify-center">
-                            <FontAwesomeIcon icon={faXmark} className="btn-icon" style={{ color: '#5d0605' }} />
+                            <FontAwesomeIcon icon={faXmark} className="btn-icon d-none" style={{ color: '#5d0605' }} />
                         </a>
                         <button className="hide-btn d-flex align-center justify-center">
-                            <FontAwesomeIcon icon={faMinus} className="btn-icon" style={{ color: '#504700' }} />
+                            <FontAwesomeIcon icon={faMinus} className="btn-icon d-none" style={{ color: '#504700' }} />
                         </button>
                         <button className="expand-btn d-flex align-center justify-center">
-                            <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} className="btn-icon" style={{ color: '#012f0d', fontSize: '.4rem' }} />
+                            <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} className="btn-icon d-none" style={{ color: '#012f0d', fontSize: '.4rem' }} />
                         </button>
                     </div>
                     {/* Categories */}

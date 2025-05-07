@@ -41,7 +41,7 @@ function ImageSlider({ images }) {
             </button>
 
             {/* Slider Navigation */}
-            <div className="slider-indicators">
+            <div className="slider-indicators d-flex justify-center align-center">
                 {images.map((_, index) => (
                     <span
                         key={index}
