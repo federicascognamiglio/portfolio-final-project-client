@@ -22,7 +22,7 @@ function HomePage() {
                                 <div key={category.id} className="col-50">
                                     <div className="folder">
                                         <Link className='d-flex flex-column align-center' to={`/projects?categoryName=${category.name}`}>
-                                            <img className='folder-icon' src="img/folder.webp" alt="Folder Icon" />
+                                            <img className='folder-icon' src="/img/folder.webp" alt="Folder Icon" />
                                             <p className="folder-label text-white text-center">{category.name}</p>
                                         </Link>
                                     </div>
@@ -32,14 +32,14 @@ function HomePage() {
                     </div>
                     {/* Reel & CV*/}
                     <div className='d-flex flex-column align-center'>
-                        <div className="reel folder d-flex flex-column align-center">
-                            <img className="reel-icon" src='img/reel-cover.webp' alt='Reel thumbnail' />
+                        <Link to={'/reel'} className="reel folder d-flex flex-column align-center">
+                            <img className="reel-icon" src='/img/reel-cover.webp' alt='Reel thumbnail' />
                             <p className='folder-label text-white text-center'>Reel</p>
-                        </div>
-                        <div className="cv folder d-flex flex-column align-center">
-                            <img className="cv-icon" src='img/pdf-file-icon.webp' alt='Pdf icon' />
+                        </Link>
+                        <Link to={'/cv'} className="cv folder d-flex flex-column align-center">
+                            <img className="cv-icon" src='/img/pdf-file-icon.webp' alt='Pdf icon' />
                             <p className='folder-label text-white text-center'>CV</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

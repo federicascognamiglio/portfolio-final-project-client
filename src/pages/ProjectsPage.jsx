@@ -198,7 +198,7 @@ function ProjectsPage() {
                             <div className="buttons">
                                 <button onClick={() => handleGridSwitch('grid')} className="layout-grid grid-icon p-relative"><FontAwesomeIcon icon={faTableCellsLarge} /></button>
                                 <button onClick={() => handleGridSwitch('preview')} className="layout-list grid-icon"><FontAwesomeIcon icon={faGripVertical} /></button>
-                                <button className="filters-btn grid-icon"><FontAwesomeIcon icon={faFilter} /></button>
+                                <button className="filters-btn grid-icon p-relative"><FontAwesomeIcon icon={faFilter} /></button>
                             </div>
                             <div className="p-relative">
                                 <input type="text" className="search-bar" />

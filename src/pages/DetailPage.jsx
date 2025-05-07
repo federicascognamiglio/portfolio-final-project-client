@@ -29,6 +29,15 @@ function DetailPage() {
     // Get Project at component's mounting
     useEffect(() => getProject(), [])
 
+    // Format Date
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate(); 
+        const month = date.getMonth() + 1; 
+        const year = date.getFullYear(); 
+        return `${day}-${month < 10 ? '0' : ''}${month}-${year}`;
+    }
+
 
     return (
         <div className="detail-page text-white">
@@ -52,9 +61,15 @@ function DetailPage() {
                                 <p className="details"><strong className="text-medium">Tags: </strong>{project.tags.map(tag => <span className="badge-tag" key={tag.id} style={{ backgroundColor: tag.color }}>{tag.name}</span>)}</p>
                                 <p className="details"><strong className="text-medium">Tools: </strong>{project.tools.map(tool => <span className="badge-tool" key={tool.id} style={{ backgroundColor: tool.color }}>{tool.name}</span>)}</p>
                                 {project.start_date &&
-                                    <div className="d-flex justify-between">
-                                        <p><strong className="text-medium">Start date: </strong>{project.start_date}</p>
-                                        <p><strong className="text-medium">End date: </strong>{project.end_date ? project.end_date : 'On going'}</p>
+                                    <div className="details d-flex justify-between">
+                                        <p className="date">
+                                            <strong className="text-medium">Start date: </strong>
+                                            {project.start_date ? formatDate(project.start_date) : 'N/A'}
+                                        </p>
+                                        <p>
+                                            <strong className="text-medium">End date: </strong>
+                                            {project.end_date ? formatDate(project.end_date) : 'On going'}
+                                        </p>
                                     </div>
                                 }
                                 <p className="details description"><strong className="text-medium">Description:</strong><br />

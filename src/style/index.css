@@ -1,14 +1,91 @@
-/* Header */
+/* GENERAL */
+.home-page,
+.projects-page,
+.side-menu,
+.projects-list,
+.col-list,
+.col-preview,
+.detail-page,
+.reel-page,
+.about-page,
+.cv-page  {
+    height: 100vh;
+}
+
+/* Common Styles */
+.header,
+.footer-link .link-icon,
+.folder,
+.folder .folder-icon,
+.projects-list-header::after,
+.project-card,
+.thumbnail-img,
+.slider-img  {
+    width: 100%;
+}
+
+.footer-link .link-icon,
+.footer .links li:nth-last-child(2)::after,
+.thumbnail-img,
+.slider-img {
+    height: 100%;
+}
+
+.projects-dropdown,
+.footer .links li:nth-last-child(2)::after,
+.hover-link-label,
+.hover-link-label::after,
+.side-menu-header::after,
+.projects-list-header::after,
+.search-bar-icon,
+.layout-grid::after,
+.dots,
+.prev-slide, 
+.next-slide,
+.slider-indicators {
+    position: absolute;
+}
+
+.project-preview-subtitle,
+.info-row,
+.detail-page .subtitle,
+.back-btn,
+.forward-btn {
+    font-family: 'SF Pro Thin';
+}
+
+.folder,
+.folder .folder-icon,
+.folder-label,
+.reel .reel-icon,
+.cv .cv-icon {
+    padding: .3rem;
+}
+
+.side-menu-header .close-btn,
+.side-menu-header .hide-btn,
+.side-menu-header .expand-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer-link .link-icon,
+.thumbnail-img,
+.slider-img  {
+    object-fit: cover;
+}
+
+/* HEADER */
 .header {
     background-color: var(--header-background-color);
     height: var(--header-height);
     padding: 10px 20px;
-    font-family: 'SF Pro Light';
     font-size: .9rem;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 100;
 }
 
@@ -18,12 +95,7 @@
 }
 
 .nav-link {
-    color: #ffffff;
     padding: 3px 8px;
-}
-
-.header .nav-icons {
-    color: #ffffff;
 }
 
 .header .nav-icons li {
@@ -37,13 +109,10 @@
 
 /* DROPDOWN */
 .projects-dropdown {
-    position: absolute;
     top: 30px;
     left: -5px;
-    border: 1px solid rgba(162, 162, 162, 0.5);
+    border: var(--main-border-style);
     background-color: var(--dropdown-background-color);
-    color: #ffffff;
-    border-radius: 10px;
     padding: 10px;
     z-index: 1000;
     width: 180px;
@@ -51,11 +120,10 @@
 
 .dropdown-link {
     padding: 5px 10px;
-    color: #ffffff;
     font-size: 0.9rem;
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
     background-color: var(--footer-background-color);
     height: var(--footer-height);
@@ -64,7 +132,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 10px;
-    border: 1px solid rgba(162, 162, 162, 0.5);
+    border: var(--main-border-style);
     border-radius: 20px;
 }
 
@@ -80,46 +148,32 @@
 }
 
 .footer-link .link-icon {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
     border-radius: 20%;
 }
 
 .footer .links li:nth-last-child(2)::after {
     content: '';
-    position: absolute;
     right: -15px;
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 100%;
-    background-color: rgba(162, 162, 162, 0.5);
+    background-color: var(--main-grey);
 }
 
 .hover-link-label {
-    display: none;
-    position: absolute;
     bottom: 90px;
     left: 50%;
     transform: translateX(-50%);
     padding: .5rem .8rem;
     background-color: var(--hover-link-label-background-color);
-    color: #fff;
-    border-radius: 8px;
-    text-align: center;
-    font-family: 'SF Pro Light';
     font-size: .8rem;
 }
 
 .hover-link-label::after {
     content: '';
-    position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 0;
-    height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid var(--hover-link-label-background-color);
@@ -127,10 +181,8 @@
 
 /* Home Page */
 .home-page {
-    background-image: url('img/main-bg.jpg');
+    background-image: url('/img/main-bg.webp');
     background-size: cover;
-    height: 100vh;
-    font-family: 'SF Pro Light';
     padding-top: 100px;
 }
 
@@ -140,16 +192,8 @@
 
 .home-page .subtitle {
     font-size: 1.2rem;
-    color: #ffffff;
     margin-top: 20px;
     font-family: 'SF Pro Regular';
-}
-
-.home-page .lockscreen-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .folders {
@@ -159,71 +203,58 @@
 
 .folder {
     margin-bottom: 30px;
-    width: 100%;
-}
-
-.folder .folder-icon {
-    width: 100%;
-    padding: .3rem;
 }
 
 .folder-label {
-    padding: .3rem;
-    color: #ffffff;
     font-size: 0.9rem;
 }
 
 .reel .reel-icon {
     width: 80px;
-    padding: .3rem;
 }
 
 .cv .cv-icon {
     width: 60px;
-    padding: .3rem;
 }
 
 /* Projects Page */
-.projects-page {
-    height: 100vh;
-    font-family: 'SF Pro Light';
+.side-menu,
+.projects-list {
+    padding-top: 70px;
 }
 
 .side-menu {
-    height: 100vh;
-    padding-top: 70px;
     width: var(--side-menu-width);
     background-color: var(--side-menu-background-color);
-    color: #ffffff;
 }
 
 .btn-icon {
-    display: none;
     font-size: .6rem;
 }
 
 .projects-list {
     background-color: var(--project-page-background-color);
-    padding-top: 70px;
     width: calc(100% - var(--side-menu-width));
-    height: 100vh;
-    color: #ffffff;
 }
 
-.side-menu-header {
+.side-menu-header,
+.projects-list-header {
     height: 30px;
     padding-bottom: 20px;
 }
 
-.side-menu-header::after {
+.side-menu-header::after,
+.projects-list-header::after {
     content: '';
-    position: absolute;
     bottom: 0;
     left: 0;
-    width: 200px;
     height: 1px;
     background-color: rgb(1, 4, 22);
     box-shadow: 5px 2px 8px #414247;
+}
+
+.side-menu-header::after {
+    width: 200px;
 }
 
 .active-side-bar {
@@ -231,24 +262,8 @@
     border-radius: 5px;
 }
 
-.projects-list-header {
-    height: 30px;
-    padding-bottom: 20px;
-}
-
-.projects-list-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: rgb(1, 4, 22);
-    box-shadow: 5px 2px 8px #414247;
-}
-
 .side-menu-body {
-    padding: 30px 30px;
+    padding: 30px;
 }
 
 .projects-list-body {
@@ -256,25 +271,14 @@
 }
 
 .side-menu-header .close-btn {
-    width: 12px;
-    height: 12px;
-    margin-right: 10px;
-    border-radius: 50%;
     background-color: var(--close-btn-color);
 }
 
 .side-menu-header .hide-btn {
-    width: 12px;
-    height: 12px;
-    margin-right: 10px;
-    border-radius: 50%;
     background-color: var(--hide-btn-color);
 }
 
 .side-menu-header .expand-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
     background-color: var(--expand-btn-color);
 }
 
@@ -286,16 +290,17 @@
     padding-right: 30px;
 }
 
+.back-btn,
+.forward-btn {
+    font-size: 1.5rem;
+}
+
 .back-btn {
     padding-right: 10px;
-    font-family: 'SF Pro Thin';
-    font-size: 1.5rem;
 }
 
 .forward-btn {
     padding-right: 20px;
-    font-family: 'SF Pro Thin';
-    font-size: 1.5rem;
 }
 
 .disabled {
@@ -305,18 +310,17 @@
 
 .search-bar {
     background-color: var(--project-page-background-color);
-    border: 1px solid rgba(162, 162, 162, 0.5);
+    border: var(--main-border-style);
     border-radius: 8px;
     padding: 5px 10px;
 }
 
 .search-bar-icon {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 10px;
     font-size: .8rem;
-    color: rgba(162, 162, 162, 0.5);
+    color: var(--main-grey);
 }
 
 .buttons {
@@ -327,19 +331,18 @@
     margin-right: 20px;
 }
 
+.layout-list {
+    margin-right: 40px;
+}
+
 .layout-grid::after {
     content: '';
-    position: absolute;
     top: 50%;
     left: 38px;
     transform: translateY(-50%);
     width: 1px;
     height: 20px;
-    background-color: rgba(162, 162, 162, 0.5);
-}
-
-.layout-list {
-    margin-right: 40px;
+    background-color: var(--main-grey);
 }
 
 .grid-card .project-name {
@@ -347,12 +350,15 @@
     padding: 3px 8px;
 }
 
+.category-item,
+.type-item {
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
 .category-item {
     color: #7E8A9E;
-    padding: 3px 5px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    cursor: pointer;
+    margin: 20px 0 10px;
 }
 
 .grid-icon {
@@ -362,17 +368,11 @@
 
 .type-item {
     color: #E5EEFF;
-    padding: 3px 5px;
     margin-bottom: 5px;
-    cursor: pointer;
 }
 
 .project-grid {
     padding-top: 30px;
-}
-
-.project-card {
-    width: 100%;
 }
 
 .project-card .project-thumbnail {
@@ -387,16 +387,8 @@
     margin-right: 10px;
 }
 
-.thumbnail-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
 .col-list {
     width: 30%;
-    height: 100vh;
     padding-top: 30px;
     border-right: 1px solid rgb(1, 4, 22);
 }
@@ -408,33 +400,28 @@
 .col-preview {
     width: 70%;
     padding: 40px 40px 200px 80px;
-    height: 100vh;
     overflow: scroll;
 }
 
 .project-preview-name {
     font-size: 1.5rem;
-    padding-top: 20px;
-    padding-bottom: 5px;
+    padding: 20px 0 5px;
 }
 
 .project-preview-subtitle {
-    font-family: 'SF Pro Thin';
     padding-bottom: 20px;
 }
 
 .project-preview-info {
-    padding-top: 10px;
-    padding-bottom: 50px;
+    padding: 10px 0 50px;
 }
 
 .info-row {
-    font-family: 'SF Pro Thin';
     font-size: 1rem;
 }
 
 .divider {
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .more-btn {
@@ -447,7 +434,6 @@
 }
 
 .dots {
-    position: absolute;
     top: -2px;
     left: 50%;
     transform: translateX(-50%);
@@ -462,10 +448,7 @@
 /* Detail Page */
 .detail-page {
     background-color: var(--project-page-background-color);
-    color: #ffffff;
-    height: 100vh;
     padding: 80px 0 100px 0;
-    font-family: 'SF Pro Light';
     overflow: scroll;
 }
 
@@ -477,14 +460,11 @@
 }
 
 .slider-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
 }
 
-.prev-slide, .next-slide {
-    position: absolute;
+.prev-slide, 
+.next-slide {
     top: 50%;
     transform: translateY(-50%);
     font-size: 2rem;
@@ -500,14 +480,10 @@
 }
 
 .slider-indicators {
-    position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
     gap: 8px;
-    justify-content: center;
-    align-items: center;
 }
 
 .indicator {
@@ -529,16 +505,13 @@
 }
 
 .detail-page .subtitle {
-    font-family: 'SF Pro Thin';
     font-size: 1.2rem;
     padding-bottom: 20px;
 }
 
 .detail-page .category-type {
     background-color: var(--main-blue);
-    color: #ffffff;
     padding: .3em 1em;
-    border-radius: 10px;
 }
 
 .details {
@@ -559,4 +532,30 @@
 .detail-page .description {
     max-width: 70%;
     padding-top: 20px;
+}
+
+.details .date {
+    margin-right: 20px;
+}
+
+/* Reel Page & About Page & CV Page */
+/* TB Defined */
+.reel-page,
+.about-page,
+.cv-page {
+    padding-top: 100px;
+    background-color: var(--project-page-background-color);
+}
+
+.reel-page h1,
+.about-page h1,
+.cv-page h1 {
+    padding-bottom: 10px;
+}
+
+.reel-page a,
+.cv-page a {
+    background-color: var(--main-blue);
+    padding: .3em 1em;
+    margin-top: 20px;
 }

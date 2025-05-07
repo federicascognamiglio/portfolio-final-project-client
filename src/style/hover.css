@@ -1,52 +1,26 @@
-/* Header */
-.dropdown-link:hover {
-    background-color: var(--main-blue);
-    border-radius: 5px;
-}
-
-/* Footer */
-.footer-link:hover .link-icon {
-    transform: translateY(-5px);
-}
-
-.footer-link:hover .hover-link-label {
-    display: inline-block;
-}
-
-/* Home Page */
-.folder:hover .folder-icon {
-    border: 1px solid rgba(162, 162, 162, 0.5);
-    border-radius: 5px;
-}
-
-.folder:hover .reel-icon {
-    border: 1px solid rgba(162, 162, 162, 0.5);
-    border-radius: 5px;
-}
-
-.folder:hover .cv-icon {
-    border: 1px solid rgba(162, 162, 162, 0.5);
-    border-radius: 5px;
-}
-
+/* Hover states */
+.dropdown-link:hover,
+.grid-card:hover .project-name,
 .folder:hover .folder-label {
     background-color: var(--main-blue);
     border-radius: 5px;
 }
 
-/* Projects Page */
-.side-menu-header:hover .btn-icon {
-    display: inline-block;
-}
-
-.grid-card:hover .project-thumbnail {
+.grid-card:hover .project-thumbnail,
+.folder:hover .folder-icon,
+.folder:hover .reel-icon,
+.folder:hover .cv-icon {
     border: 1px solid rgba(162, 162, 162, 0.5);
     border-radius: 5px;
 }
 
-.grid-card:hover .project-name {
-    background-color: var(--main-blue);
-    border-radius: 5px;
+.footer-link:hover .link-icon {
+    transform: translateY(-5px);
+}
+
+.footer-link:hover .hover-link-label,
+.side-menu-header:hover .btn-icon {
+    display: inline-block;
 }
 
 .grid-icon:hover {

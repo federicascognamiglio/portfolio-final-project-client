@@ -81,7 +81,32 @@ button {
     display: none;
 }
 
+/* Positioning */
+.p-relative {
+    position: relative;
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Border radius */
+.rounded {
+    border-radius: 5px;
+}
+
+.rounded-lg {
+    border-radius: 10px;
+}
+
 /* Typography */
+body {
+    font-family: 'SF Pro Light';
+}
+
 .text-center {
     text-align: center;
 }
@@ -94,7 +119,6 @@ button {
     font-family: 'SF Pro Medium';
 }
 
-/* Positioning */
-.p-relative {
-    position: relative;
+.text-white {
+    color: #ffffff;
 }
