@@ -4,8 +4,9 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faMaximize } from '@fortawesome/free-solid-svg-icons'
 
-function ImageSlider({ images }) {
+function ImageSlider({ images, onImageClick }) {
     //Global context variables
     const { baseImgUrl } = useGlobalContext()
 
@@ -27,6 +28,12 @@ function ImageSlider({ images }) {
                 alt={images[current].description || `Slide ${images[current].id}`}
                 className="slider-img"
             />
+            <button
+                className="expand-btn"
+                onClick={() => onImageClick(`${baseImgUrl}/${images[current].url}`)}
+            >
+                <FontAwesomeIcon icon={faMaximize} />
+            </button>
             <button
                 onClick={prevSlide}
                 className="prev-slide"

@@ -11,32 +11,18 @@ function ProjectsPreview({ projects }) {
 
     // Preview Project
     const getProjectToPreview = (slug) => {
-        // Check if cliccked project is already displaying
-        if (slug === selectedProject.slug) {
-            return;
-        }
-
         axios.get(`${baseApiUrl}/projects/${slug}`)
-            .then(resp => {
-                console.log('API response:', resp.data.data);
-
-                // Check if the response contains valid data
-                if (resp.data && resp.data.data) {
-                    setSelectedProject(resp.data.data);
-                } else {
-                    console.error('Error: Received invalid data from API', resp);
-                }
-            })
-            .catch(err => {
-                console.error('Error fetching project data:', err);
-            });
+        .then(resp => {
+            if (resp.data && resp.data.data) {
+                setSelectedProject(resp.data.data);
+            } else {
+                console.error('Error: Received invalid data from API', resp);
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching project data:', err);
+        });
     }
-
-    useEffect(() => {
-        if (selectedProject && selectedProject.slug) {
-            getProjectToPreview(selectedProject.slug);
-        }
-    }, [selectedProject]);
 
     // Highlight the selected project
     const isHigligthed = (project) => {
@@ -50,7 +36,7 @@ function ProjectsPreview({ projects }) {
                     <div className="row">
                         {projects && projects.map(project => (
                             <div className={`col ${isHigligthed(project)}`} key={project.id}>
-                                <div onClick={() => setSelectedProject(project)} className="project-card d-flex align-center">
+                                <div onClick={() => getProjectToPreview(project.slug)} className="project-card d-flex align-center">
                                     <div className="project-thumbnail-sm">
                                         <img src={`${baseImgUrl}/${project.cover_image}`} alt={`${project.name} thumbnail`} className="thumbnail-img rounded" />
                                     </div>
@@ -85,7 +71,7 @@ function ProjectsPreview({ projects }) {
                                 <div className="info-row d-flex justify-between align-center">
                                     <p>Tools:</p>
                                     <p>{selectedProject.tools && selectedProject.tools.map((tool, index) => (
-                                        <span key={tool.id} className="tag">{index === 0 ? tool.name : `, ${tool.name}`}</span>
+                                        <span key={tool.id} className="tool">{index === 0 ? tool.name : `, ${tool.name}`}</span>
                                     ))}</p>
                                 </div>
                             </div>

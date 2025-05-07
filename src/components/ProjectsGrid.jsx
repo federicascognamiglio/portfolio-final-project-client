@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../contexts/GlobalContext";
 
-function ProjectsGrid({ projects, category }) {
+function ProjectsGrid({ projects }) {
     // Global Context Variables
     const { baseImgUrl } = useGlobalContext();
     return (
