@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "../contexts/GlobalContext"
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ImageSlider from "../components/ImageSlider";
 
@@ -55,6 +55,13 @@ function DetailPage() {
                 {project &&
                     (
                         <>
+                            {/* BreadCrumbs */}
+                            <div className="bread-crumbs d-flex">
+                                <Link to="/" className="bread-crumb-link">Home /</Link>
+                                <Link to={`/projects?categoryName=${project.category.name}`} className="bread-crumb-link"> Projects /</Link>
+                                <p className="bread-crumb-active"> Details</p>
+                            </div>
+                            {/* Project Details */}
                             <div className="d-flex flex-column align-center">
                                 <h1 className="main-title">{project.title}</h1>
                                 <h5 className="subtitle">{project.subtitle}</h5>
@@ -69,7 +76,7 @@ function DetailPage() {
                                             alt={`Cover image of ${project.title}`}
                                         />
                                         <button
-                                            className="expand-btn"
+                                            className="img-expand-btn"
                                             onClick={() => openImageModal(`${baseImgUrl}/${project.cover_image}`)}
                                         >
                                             <FontAwesomeIcon icon={faMaximize} />

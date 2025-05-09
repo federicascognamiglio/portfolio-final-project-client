@@ -29,7 +29,7 @@ function ImageSlider({ images, onImageClick }) {
                 className="slider-img"
             />
             <button
-                className="expand-btn"
+                className="img-expand-btn"
                 onClick={() => onImageClick(`${baseImgUrl}/${images[current].url}`)}
             >
                 <FontAwesomeIcon icon={faMaximize} />
