@@ -32,43 +32,22 @@ function ProjectsPage() {
     // Global Context Variables
     const { categories, baseApiUrl } = useGlobalContext();
 
-    // Get projects by category
-    const getProjectsByCategory = (selectedCategory) => {
+    // Get Projects
+    const getProjects = ({ category, type }) => {
         const url = new URL(`${baseApiUrl}/projects`);
-        if (selectedCategory) {
-            url.searchParams.append("category_name", selectedCategory);
-        }
+        if (category) url.searchParams.append("category_name", category);
+        if (type) url.searchParams.append("type_name", type);
         axios.get(url.toString())
-            .then(resp => {
-                setProjects(resp.data.data);
-            })
-            .catch(err => {
-                console.error("Error loading projects:", err);
-            });
-    }
-
-    // Get projects by type
-    const getProjectsByType = (selectedType) => {
-        const url = new URL(`${baseApiUrl}/projects`);
-        if (selectedType) {
-            url.searchParams.append("type_name", selectedType);
-        }
-        axios.get(url.toString())
-            .then(resp => {
-                setProjects(resp.data.data);
-            })
-            .catch(err => {
-                console.error("Error loading projects:", err);
-            });
-    }
+            .then(resp => setProjects(resp.data.data))
+            .catch(err => console.error("Error loading projects:", err));
+    };
 
     // Load projects when component mounts
     useEffect(() => {
         if (selectedType) {
-            getProjectsByType(selectedType)
-        }
-        if (selectedCategory) {
-            getProjectsByCategory(selectedCategory);
+            getProjects({ type: selectedType });
+        } else if (selectedCategory) {
+            getProjects({ category: selectedCategory });
         }
     }, [selectedCategory, selectedType]);
 
@@ -192,7 +171,7 @@ function ProjectsPage() {
                                 disabled={!canGoForward}>
                                 &gt;
                             </button>
-                            <span className="category-name">{selectedCategory}</span>
+                            <span className="category-name">{selectedCategory || selectedType}</span>
                         </div>
                         <div className="actions d-flex">
                             <div className="buttons">
